@@ -1,111 +1,39 @@
-# Will You Be My Girlfriend? 💕
+# A Virtual Bouquet for Maria 💐
 
-A beautiful, romantic single-page web app to ask that special question.
+Seven flowers, seven questions, seven love letters. A small static website made to be opened on a phone.
 
-## Features
+## How it works
 
-- ✨ Beautiful animated interface with floating hearts
-- 💕 Smooth transitions and animations
-- 🎉 Confetti celebration when "Yes" is clicked
-- 🏃 The "No" button playfully runs away (on both desktop and mobile)
-- 📱 Fully responsive - works on all devices
-- 🖼️ Photo gallery placeholders for your memories
-- 💌 Customizable love message
+1. **Welcome**: a short note inviting Maria to open her bouquet.
+2. **Bouquet**: seven clickable flowers. The next flower to read glows softly, and opened flowers get a small gold heart.
+3. **Letters**: each flower opens a love letter. The seventh flower stays a bud until the other six have been read, then blooms and opens a specially styled final letter.
+4. **Closing note**: shown after the seventh letter, with our photo. It can be reopened from the bouquet later.
 
-## Customization
+Little extras: tap the polaroid tucked into the wrapping to see the photo, tap the ribbon, or tap anywhere empty for a floating heart.
 
-### Add Your Photos
+Progress is saved in the browser, so the bouquet remembers which letters were opened. Add `?reset` to the URL to start over (useful for testing before sending).
 
-1. Replace the circular image placeholder in `src/components/QuestionScreen.tsx`
-2. Replace the photo gallery placeholders in `src/components/SuccessScreen.tsx`
+## Editing
 
-### Customize the Message
+| What | Where |
+| --- | --- |
+| Letter questions and answers, greeting, sign-off, hints | `site/js/content.js` |
+| Welcome and closing note wording | `site/index.html` |
+| Colours, fonts, animations | `site/css/style.css` |
+| Flower designs and bouquet layout | `site/js/app.js` (`FLOWERS`) |
+| Photo | `site/images/us.jpeg` |
 
-Edit the romantic message in `src/components/SuccessScreen.tsx`:
-- Find the `"From the moment I met you..."` text
-- Replace with your personal message
-- Update the signature at the bottom
+## Running locally
 
-## Getting Started
+No build step. Open `site/index.html` in a browser.
 
-### Prerequisites
-
-- Node.js 18+ installed
-- npm or yarn
-
-### Installation
+## Deploying
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+./deploy.sh        # Git Bash
+./deploy.ps1       # PowerShell
 ```
 
-## Deployment to Vercel
+Both copy `site/` into `dist/` and force-push it to the `gh-pages` branch using the key in `.ssh/`.
 
-### Option 1: Via Vercel CLI
-
-```bash
-# Install Vercel CLI globally
-npm install -g vercel
-
-# Deploy
-vercel
-```
-
-### Option 2: Via GitHub
-
-1. Push this project to a GitHub repository
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Vercel will auto-detect Vite and deploy
-
-### Option 3: Drag & Drop
-
-1. Run `npm run build`
-2. Go to [vercel.com](https://vercel.com)
-3. Drag the `dist` folder to deploy
-
-## Project Structure
-
-```
-├── public/
-│   └── heart.svg          # Favicon
-├── src/
-│   ├── components/
-│   │   ├── FloatingHeartsBackground.tsx
-│   │   ├── HeartIcon.tsx
-│   │   ├── QuestionScreen.tsx
-│   │   └── SuccessScreen.tsx
-│   ├── App.tsx
-│   ├── index.css
-│   ├── main.tsx
-│   └── vite-env.d.ts
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── tsconfig.json
-├── vercel.json
-└── vite.config.ts
-```
-
-## Tech Stack
-
-- React 18
-- TypeScript
-- Tailwind CSS
-- Framer Motion (animations)
-- Canvas Confetti
-- Vite (build tool)
-
-## License
-
-Made with ❤️ for that special someone.
+The old React version is kept in `old-react-site/` for reference.

@@ -1,11 +1,9 @@
 #!/bin/bash
 set -e
 
-# Build
-npm run build
-
-# Clean and init
-rm -rf dist/.git
+# Copy the static site into a fresh dist folder
+rm -rf dist
+cp -r site dist
 cd dist
 
 git init

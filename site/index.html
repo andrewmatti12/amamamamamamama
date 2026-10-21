@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fcefe9">
+  <title>A Bouquet for Maria 💐</title>
+  <meta name="description" content="Seven flowers. Seven questions. Seven love letters.">
+  <meta property="og:title" content="A Bouquet for Maria 💐">
+  <meta property="og:description" content="Seven flowers. Seven questions. Seven love letters.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/content.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+
+  <main>
+    <!-- Welcome -->
+    <section id="welcome" class="screen is-active" aria-labelledby="welcome-title">
+      <div class="welcome">
+        <div class="seal" id="seal" aria-hidden="true">♥</div>
+        <p class="eyebrow">A little gift, just for you</p>
+        <h1 id="welcome-title" class="script">My dearest Maria</h1>
+        <p class="lead">I can't hand you flowers while you're away, so I made you a bouquet instead.</p>
+        <p class="lead">Seven flowers, seven questions, seven little love letters, each one carrying a piece of my heart.</p>
+        <button class="btn" type="button" id="open-bouquet">Open your bouquet</button>
+      </div>
+    </section>
+
+    <!-- Bouquet -->
+    <section id="bouquet" class="screen" aria-labelledby="bouquet-title">
+      <header class="bouquet-header">
+        <h2 id="bouquet-title" class="script">For you, Maria</h2>
+        <p class="hint" id="hint" aria-live="polite"></p>
+      </header>
+      <div class="bouquet-stage" id="stage">
+        <svg id="bouquet-svg" viewBox="12 22 376 548" role="group" aria-label="A bouquet of seven flowers"></svg>
+      </div>
+      <footer class="bouquet-footer">
+        <ol class="progress" id="progress" aria-label="Letters opened"></ol>
+        <button class="btn btn-ghost" type="button" id="show-finale" hidden>💌 One last note</button>
+      </footer>
+    </section>
+
+    <!-- Closing note -->
+    <section id="finale" class="screen" aria-labelledby="finale-title">
+      <div class="finale">
+        <figure class="polaroid">
+          <img src="images/us.jpeg" alt="The two of us on your graduation day">
+          <figcaption class="script">You &amp; me</figcaption>
+        </figure>
+        <h2 id="finale-title" class="script">Thinking of you, always</h2>
+        <p>You've opened every flower in your bouquet. Each one carries a little piece of my heart, and every piece of it belongs to you.</p>
+        <p>No matter how many miles are between us right now, you are never far from my thoughts.</p>
+        <p>Until I can hand you real flowers, I hope this bouquet made you smile.</p>
+        <p class="signoff script">All my love, always ❤️</p>
+        <button class="btn btn-ghost" type="button" id="back-to-bouquet">Back to my bouquet</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Love letter -->
+  <dialog id="letter" class="sheet" aria-labelledby="letter-question">
+    <div class="sheet-petals" id="letter-petals" aria-hidden="true"></div>
+    <article class="letter" tabindex="-1" autofocus>
+      <button class="letter-close" type="button" aria-label="Close letter" data-close>&times;</button>
+      <svg class="letter-flower" id="letter-flower" viewBox="-62 -62 124 124" aria-hidden="true"></svg>
+      <p class="letter-label reveal" style="--d: .15s" id="letter-label"></p>
+      <h3 class="letter-question reveal" style="--d: .3s" id="letter-question"></h3>
+      <p class="letter-divider reveal" style="--d: .45s" aria-hidden="true">❦</p>
+      <p class="letter-greeting script reveal" style="--d: .6s" id="letter-greeting"></p>
+      <p class="letter-body reveal" style="--d: .8s" id="letter-body"></p>
+      <svg class="letter-heart" viewBox="0 0 64 58" aria-hidden="true">
+        <path pathLength="1" d="M32 54C12 40 4 29 4 18 4 10 10 4 18 4c6 0 11 4 14 10 3-6 8-10 14-10 8 0 14 6 14 14 0 11-8 22-28 36Z"/>
+      </svg>
+      <p class="letter-signoff script reveal" style="--d: 1.05s" id="letter-signoff"></p>
+      <button class="btn reveal" style="--d: 1.25s" type="button" id="letter-action" data-close>Back to my bouquet</button>
+    </article>
+  </dialog>
+
+  <!-- Photo -->
+  <dialog id="photo" class="sheet" aria-label="A photo of us">
+    <div class="photo-view">
+      <figure class="polaroid polaroid-large" tabindex="-1" autofocus>
+        <img src="images/us.jpeg" alt="The two of us on your graduation day">
+        <figcaption class="script">You &amp; me</figcaption>
+      </figure>
+      <button class="btn btn-ghost btn-light" type="button" data-close>Close</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,11 +1,8 @@
-# Build the project (Windows)
-npm run build
-if ($LASTEXITCODE -ne 0) { exit 1 }
+# Copy the static site into a fresh dist folder (Windows)
+Remove-Item -Recurse -Force dist -ErrorAction SilentlyContinue
+Copy-Item -Recurse site dist
 
-# Remove old dist git to force fresh commit
-Remove-Item -Recurse -Force dist\.git -ErrorAction SilentlyContinue
-
-# Navigate to build output
+# Navigate to the site copy
 Push-Location dist
 
 # Initialize git and commit

@@ -17,23 +17,24 @@ Progress is saved in the browser, so the bouquet remembers which letters were op
 
 | What | Where |
 | --- | --- |
-| Letter questions and answers, greeting, sign-off, hints | `site/js/content.js` |
-| Welcome and closing note wording | `site/index.html` |
-| Colours, fonts, animations | `site/css/style.css` |
-| Flower designs and bouquet layout | `site/js/app.js` (`FLOWERS`) |
-| Photo | `site/images/us.jpeg` |
+| Letter questions and answers, greeting, sign-off, hints | `js/content.js` |
+| Welcome and closing note wording | `index.html` |
+| Colours, fonts, animations | `css/style.css` |
+| Flower designs and bouquet layout | `js/app.js` (`FLOWERS`) |
+| Photo | `images/us.jpeg` |
 
 ## Running locally
 
-No build step. Open `site/index.html` in a browser.
+No build step. Open `index.html` in a browser.
 
 ## Deploying
 
+GitHub Pages serves the root of the `main` branch, so pushing to `main` publishes the site within a minute or two:
+
 ```bash
-./deploy.sh        # Git Bash
-./deploy.ps1       # PowerShell
+git push origin main
 ```
 
-Both copy `site/` into `dist/` and force-push it to the `gh-pages` branch using the key in `.ssh/`.
+The repo is set up to push over port 443 (`ssh.github.com`) with the `mg-github-pages` deploy key, because port 22 is blocked on the work network. `.nojekyll` stops GitHub from running the files through Jekyll.
 
-The old React version is kept in `old-react-site/` for reference.
+The old React version is kept locally in `old-react-site/` (not committed).

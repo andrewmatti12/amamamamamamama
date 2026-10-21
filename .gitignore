@@ -25,3 +25,6 @@ dist-ssr
 
 # Project SSH keys
 .ssh/
+
+# Archived React version
+old-react-site/
